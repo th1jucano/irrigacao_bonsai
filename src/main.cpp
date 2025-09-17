@@ -4,16 +4,15 @@
 #define led 13
 #define sensor A0
 
-
-void ligaBomba(){
+void ligaBomba(){ // Ligar a bomba 
   digitalWrite(bomba, HIGH);
 }
 
-void desligaBomba(){
+void desligaBomba(){ // Desligar a bomba
   digitalWrite(bomba, LOW);
 }
 
-int lerSensor(){
+int lerSensor(){ // Leitura do sensor
   return analogRead(sensor);
 }
 
@@ -24,7 +23,7 @@ void setup() {
 }
 
 void loop() {
-  if (lerSensor() > 670 ){
+  if (lerSensor() > 670 ){ // Até agora o número razoável de umidade do solo, alterar quando necessário
     ligaBomba();
   }else{
     desligaBomba();
@@ -33,12 +32,6 @@ void loop() {
 
   Serial.println(lerSensor());
   delay(1000);
-
-
-  // ligaBomba(true);
-  // delay(50000);
-  // ligaBomba(false);
-  // delay(50000);
 
 }
 
